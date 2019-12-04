@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import crossIcon from "../asserts/crossIcon.png";
+import Profile from './Patients/Profile';
 
 const Patients = () => {
   return (
@@ -31,6 +32,7 @@ const Patients = () => {
             </NavItem>
         </RightContainer>
       </Header>
+      <Profile />
     </Page>
   );
 };
@@ -46,12 +48,16 @@ const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 2px solid #F2F2F2;
 `;
 
 const Page = styled.div`
   background: #f2f2f2;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 const Title = styled.div`
