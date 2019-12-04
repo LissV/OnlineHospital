@@ -6,11 +6,13 @@ import {
   Link
 } from "react-router-dom";
 //import Authorization from './containers/Authorization';
+import Patients from './containers/Patients';
 
 const App = () => {
   return (
     <>
       {/* <Authorization /> */}
+      <Patients />
     </>
   );
 }
