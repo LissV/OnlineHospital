@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import crossIcon from "../asserts/crossIcon.png";
+import Tests from './Patients/Tests';
 import Profile from './Patients/Profile';
 
 const Patients = () => {
@@ -32,7 +33,8 @@ const Patients = () => {
             </NavItem>
         </RightContainer>
       </Header>
-      <Profile />
+      {/* <Profile /> */}
+      <Tests />
     </Page>
   );
 };
