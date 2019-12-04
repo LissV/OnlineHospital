@@ -3,6 +3,7 @@ import styled from "styled-components";
 import crossIcon from "../asserts/crossIcon.png";
 import Tests from './Patients/Tests';
 import Profile from './Patients/Profile';
+import PatientHistory from './Patients/PatientHistory';
 
 const Patients = () => {
   return (
@@ -34,7 +35,8 @@ const Patients = () => {
         </RightContainer>
       </Header>
       {/* <Profile /> */}
-      <Tests />
+      {/* <Tests /> */}
+      <PatientHistory />
     </Page>
   );
 };
