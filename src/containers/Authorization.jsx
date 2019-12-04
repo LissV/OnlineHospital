@@ -101,7 +101,7 @@ const Authorization = () => {
             </InputAdornment>
           ),
         }}/>
-        <SignInButton style={{paddingLeft: '32px', paddingRight: '32px', marginTop: '38px'}}>
+        <SignInButton style={{paddingLeft: '32px', paddingRight: '32px', marginTop: '38px'}} onClick={() => {window.location.href = '/patients';}}>
             Войти
         </SignInButton>
         </RightContainer>

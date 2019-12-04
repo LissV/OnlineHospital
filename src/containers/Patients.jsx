@@ -4,6 +4,12 @@ import crossIcon from "../asserts/crossIcon.png";
 import Tests from './Patients/Tests';
 import Profile from './Patients/Profile';
 import PatientHistory from './Patients/PatientHistory';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+  } from "react-router-dom";
 
 const Patients = () => {
   return (
@@ -20,23 +26,34 @@ const Patients = () => {
             <NavItem margin={'0 12px 0 0'}>
                 Поликлиника
             </NavItem>
-            <NavItem margin={'0 12px 0 0'}>
+            <NavItem margin={'0 12px 0 0'} onClick={() => {window.location.href = '/patients/profile';}}>
                 Кабинет пациента
             </NavItem>
-            <NavItem margin={'0 12px 0 0'}>
+            <NavItem margin={'0 12px 0 0'} onClick={() => {window.location.href = '/patients/patientHistory';}}>
                 Медицинская карта
             </NavItem>
-            <NavItem margin={'0 12px 0 0'}>
+            <NavItem margin={'0 12px 0 0'} onClick={() => {window.location.href = '/patients/tests';}}>
                 Результаты обследований
             </NavItem>
-            <NavItem margin={'0 12px 0 0'}>
+            <NavItem margin={'0 12px 0 0'} onClick={() => {window.location.href = '/signIn';}}>
                 Выйти
             </NavItem>
         </RightContainer>
       </Header>
-      {/* <Profile /> */}
-      {/* <Tests /> */}
-      <PatientHistory />
+      <Router>
+      <Switch>
+        <Route path='/patients/profile'>
+          <Profile />
+        </Route>
+        <Route path='/patients/tests'>
+        <Tests />
+        </Route>
+        <Route path='/patients/patientHistory'>
+        <PatientHistory />
+        </Route>
+        <Redirect exact from="/patients" to="/patients/profile" />
+      </Switch>
+    </Router>
     </Page>
   );
 };

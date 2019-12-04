@@ -3,16 +3,25 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect
 } from "react-router-dom";
-//import Authorization from './containers/Authorization';
+import Authorization from './containers/Authorization';
 import Patients from './containers/Patients';
 
 const App = () => {
   return (
     <>
-      {/* <Authorization /> */}
-      <Patients />
+    <Router>
+      <Switch>
+        <Route path='/signIn'>
+          <Authorization />
+        </Route>
+        <Route path='/patients'>
+        <Patients />
+        </Route>
+        <Redirect exact  from="/" to="/signIn" />
+      </Switch>
+    </Router>
     </>
   );
 }

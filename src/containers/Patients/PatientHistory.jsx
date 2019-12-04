@@ -180,13 +180,6 @@ const TestTitle = styled.div`
     font-weight: 700;
 `;
 
-const TestStatus = styled.div`
-    color: ${({ color }) => color};
-    font-family: "Roboto";
-    font-size: 12px;
-    font-weight: 500;
-`;
-
 const CustomButton = styled(Button)`
   background: white;
   font-family: "Roboto";
