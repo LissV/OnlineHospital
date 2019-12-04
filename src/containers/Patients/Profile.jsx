@@ -2,8 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import user from "../../asserts/user.png";
 import Divider from "@material-ui/core/Divider";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+// import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
 
 const Profile = () => {
+    const [openTest, setOpenTest] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpenTest(true);
+      };
+    
+      const handleClose = () => {
+        setOpenTest(false);
+      };
   return (
     <Content>
       <Title color={"#e95d3c"} margin={"15px 0 0 15px"}>
@@ -73,7 +93,7 @@ const Profile = () => {
               <b>Назначено:</b> 20 ноября 2019 года, врач-терапевт Галкина С.С.
             </ContentText>
           </TestItem>
-          <TestItem>
+          <TestItem onClick={handleClickOpen}>
             <TestTitle>Рентген коленного сустава</TestTitle>
             <TestStatus color={"#27AE60"} marginBottom={"0"}>
               Результат получен
@@ -97,6 +117,7 @@ const Profile = () => {
             <ContentText marginTop={"0"} marginBottom={"0"}>
             <b>Примечания:</b> обязательно иметь при себе описание рентгеновского снимка коленного сустава.
             </ContentText>
+            {/* <CloseIcon color="disabled"/> */}
           </TestItem>
           <TestItem style={{ height: "70px" }}>
             <TestTitle style={{ color: "#e95d3c" }}>
@@ -109,9 +130,29 @@ const Profile = () => {
             <ContentText marginTop={"0"} marginBottom={"0"}>
             <b>Примечания:</b> отсутствуют.
             </ContentText>
+            {/* <CloseIcon color="disabled"/> */}
           </TestItem>
         </RecentTestsWrapper>
       </ProfileInfo>
+      <Dialog
+        open={openTest}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+        keepMounted
+        fullWidth
+      >
+        <DialogTitle>{"Рентген коленного сустава"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Здесь должно быть описание обследования
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <CustomButton onClick={handleClose}>
+            Закрыть
+          </CustomButton>
+        </DialogActions>
+      </Dialog>
     </Content>
   );
 };
@@ -251,3 +292,16 @@ const TestStatus = styled.div`
     font-size: 12px;
     font-weight: 500;
 `;
+
+const CustomButton = styled(Button)`
+  background: white;
+  font-family: "Roboto";
+  color: #e95d3c !important;
+  border-radius: 5px;
+  &:hover {
+    background: #e95d3c !important;
+    color: white !important;
+  }
+`;
+
+// const CloseIcon = styled(CloseOutlinedIcon)``;
