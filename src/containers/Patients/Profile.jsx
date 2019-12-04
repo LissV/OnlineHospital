@@ -121,7 +121,8 @@ export default Profile;
 const Content = styled.div`
   background: white;
   overflow-y: auto;
-  margin: 20px 50px 0;
+  margin: 20px 50px;
+  height: calc(100% - 60px);
 `;
 
 const Title = styled.div`
